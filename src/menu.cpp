@@ -5,6 +5,7 @@ void menu()
     int userChoise;
     bool isMenu = true;
     std::string pause;
+    std::string text;
 
     std::cout << "Добро пожаловать в программу Alphabet\n\n";
 
@@ -32,6 +33,10 @@ void menu()
             break;
         }
         case 3: {
+            std::cin.ignore();
+            std::cout << "\nВведите текст:\n";
+            std::getline(std::cin, text);
+            std::cout << "\n";
             break;
         }
         case 4: {
