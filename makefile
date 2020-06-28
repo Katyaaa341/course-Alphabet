@@ -8,7 +8,7 @@ OBJ = g++ $(FLAGS) -c $^ -o $@
 
 all: $(EXE)
 
-.PHONY clean all
+.PHONY: clean all
 
 $(EXE): $(DIR_SRC)/main.o
 	g++ $(FLAGS) $^ -0 $@
