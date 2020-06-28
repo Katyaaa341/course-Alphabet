@@ -19,6 +19,11 @@ TEST(checkPathTest, correct)
 }
 TEST(checkPathTest, incorrect)
 {
-	EXPECT_FALSE(checkPath(" "));
-	EXPECT_FALSE(checkPath("test/TEXT.txt"));
+    EXPECT_FALSE(checkPath(" "));
+    EXPECT_FALSE(checkPath("test/TEXT.txt"));
+}
+TEST(getTextTest, correct)
+{
+    words.clear();
+    EXPECT_TRUE(getText(text, TEXT));
 }
