@@ -1,9 +1,12 @@
+#include "menu.h"
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    cout << "Test\n";
+    setlocale(LC_ALL, "Russian");
+
+    menu();
 
     return 0;
 }
