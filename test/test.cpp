@@ -48,3 +48,12 @@ TEST(writeResultsTest, incorrect)
 
     std::ofstream file(RESULT, std::ios_base::trunc);
 }
+TEST(parseTest, correct)
+{
+    words.clear();
+
+    getText(text, TEXT);
+    parse(text, words);
+
+    EXPECT_EQ(words.size(), 5);
+}
