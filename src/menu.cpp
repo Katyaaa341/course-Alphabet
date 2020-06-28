@@ -44,7 +44,7 @@ void menu()
                 std::getline(std::cin, pause);
                 break;
             }
-            
+
             parse(text, words);
             textSort(words);
 
