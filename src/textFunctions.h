@@ -1,9 +1,10 @@
 #ifndef TEXT_PROCESSING_H
 #define TEXT_PROCESSING_H
 
-#pragma warning(disable : 4996)
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <algorithm>
+#include <cstring>
 #include <fstream>
 #include <iostream>
 #include <string>
