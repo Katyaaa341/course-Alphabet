@@ -12,6 +12,8 @@ void menu()
     std::cout << "Добро пожаловать в программу Alphabet\n\n";
 
     while (isMenu) {
+        words.clear();
+
         std::cout << "1. Информация о программе\n";
         std::cout << "2. Взять текст из файла\n";
         std::cout << "3. Ввести текст вручную\n";
@@ -32,15 +34,66 @@ void menu()
             break;
         }
         case 2: {
+            if (getText(text, TEXT)) {
+                std::cout << "\nФайл успешно открыт.\n\n";
+            } else {
+                std::cout << "\nОшибка\n\n";
+                isMenu = false;
+                std::cout << "Нажмите Enter чтобы продолжить\n";
+                std::cin.ignore();
+                std::getline(std::cin, pause);
+                break;
+            }
+            
+            parse(text, words);
+            textSort(words);
+
+            std::cout << "Результат сортировки:\n";
+            for (auto it : words) {
+                std::cout << it << "\n";
+            }
+
+            if (!writeResults(words, RESULT)) {
+                std::cout << "\nОшибка, файл не открыт.\n\n";
+                isMenu = false;
+                std::cout << "Нажмите Enter чтобы продолжить\n";
+                std::cin.ignore();
+                std::getline(std::cin, pause);
+                break;
+            } else {
+                std::cout << "\nРезультат сортировки записан в файл.\n\n";
+            }
+
             break;
         }
         case 3: {
-            std::cin.ignore();
-            std::cout << "\nВведите текст:\n";
-            std::getline(std::cin, text);
-            std::cout << "\n";
+            if (!getText(text)) {
+                std::cout << "Ошибка\n\n";
+                isMenu = false;
+                std::cout << "Нажмите Enter чтобы продолжить\n";
+                std::getline(std::cin, pause);
+                break;
+            }
 
             parse(text, words);
+
+            textSort(words);
+
+            std::cout << "Результат сортировки:\n";
+            for (auto it : words) {
+                std::cout << it << "\n";
+            }
+
+            if (!writeResults(words, RESULT)) {
+                std::cout << "\nОшибка, файл не открыт.\n\n";
+                isMenu = false;
+                std::cout << "Нажмите Enter чтобы продолжить\n";
+                std::cin.ignore();
+                std::getline(std::cin, pause);
+                break;
+            } else {
+                std::cout << "\nРезультат сортировки записан в файл.\n\n";
+            }
 
             break;
         }
