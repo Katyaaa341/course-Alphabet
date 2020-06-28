@@ -17,3 +17,8 @@ TEST(checkPathTest, correct)
     EXPECT_TRUE(checkPath(TEXT));
     EXPECT_TRUE(checkPath(RESULT));
 }
+TEST(checkPathTest, incorrect)
+{
+	EXPECT_FALSE(checkPath(" "));
+	EXPECT_FALSE(checkPath("test/TEXT.txt"));
+}
