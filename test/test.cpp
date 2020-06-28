@@ -27,3 +27,24 @@ TEST(getTextTest, correct)
     words.clear();
     EXPECT_TRUE(getText(text, TEXT));
 }
+TEST(writeResultsTest, correct)
+{
+    words.clear();
+
+    getText(text, TEXT);
+    parse(text, words);
+    EXPECT_TRUE(writeResults(words, RESULT));
+
+    std::ofstream file(RESULT, std::ios_base::trunc);
+}
+
+TEST(writeResultsTest, incorrect)
+{
+    words.clear();
+
+    getText(text, TEXT);
+    parse(text, words);
+    EXPECT_FALSE(writeResults(words, "test/RESULT.txt"));
+
+    std::ofstream file(RESULT, std::ios_base::trunc);
+}
