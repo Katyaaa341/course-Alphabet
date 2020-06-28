@@ -5,7 +5,9 @@ void menu()
     int userChoise;
     bool isMenu = true;
     std::string pause;
+
     std::string text;
+    std::vector<std::string> words;
 
     std::cout << "Добро пожаловать в программу Alphabet\n\n";
 
@@ -37,6 +39,9 @@ void menu()
             std::cout << "\nВведите текст:\n";
             std::getline(std::cin, text);
             std::cout << "\n";
+
+            parse(text, words);
+
             break;
         }
         case 4: {
