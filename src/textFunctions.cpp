@@ -15,7 +15,7 @@ bool checkPath(const std::string path)
 bool getText(std::string& text)
 {
     std::cin.ignore();
-    std::cout << "\nÂâåäèòå òåêñò:\n";
+    std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚ÐµÐºÑÑ‚:\n";
     std::getline(std::cin, text);
     std::cout << "\n";
 
@@ -32,7 +32,7 @@ bool getText(std::string& text, const std::string path)
         return false;
     }
 
-    std::ifstream readFile(path, std::ios_base::beg);
+    std::ifstream readFile(path);
     getline(readFile, text, '\0');
 
     readFile.close();
@@ -47,7 +47,7 @@ bool getText(std::string& text, const std::string path)
 void textSort(std::vector<std::string>& words)
 {
     auto cmp = [](const std::string& a, const std::string& b) {
-        return _strcmpi(a.c_str(), b.c_str()) < 0;
+        return strcasecmp(a.c_str(), b.c_str()) < 0;
     };
 
     std::stable_sort(words.begin(), words.end(), cmp);
@@ -74,7 +74,7 @@ bool isEnglish(const std::string text)
     char* buffer = new char[textSize];
     strcpy(buffer, text.c_str());
 
-    for (int i = 0; i < text.length() + 1; i++) {
+    for (int i = 0; i < textSize; i++) {
         if (!isascii(buffer[i])) {
             return false;
         }
