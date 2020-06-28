@@ -38,6 +38,6 @@ $(DIR_SRC)/textFunctions.o: src/textFunctions.cpp
 clean:
 	rm -rf $(DIR_SRC)/*.o
 	rm -rf $(DIR_TEST)/*.o
-	rm bin/*.exe
+	rm -rf bin/*.exe
 	rm $(EXE)
 	rm $(TEST)
